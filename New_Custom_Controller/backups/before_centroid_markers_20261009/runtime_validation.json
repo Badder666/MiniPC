@@ -1,0 +1,23 @@
+{
+  "state_frames_3s": 287,
+  "marker_arrays_3s": 14,
+  "marker_count": 20,
+  "last_positions": [
+    -0.055504798889160156,
+    -0.02231597900390625,
+    0.044442176818847656,
+    0.00667572021484375,
+    0.08030033111572266,
+    0.02613067626953125
+  ],
+  "valid_motor_mask": 63,
+  "marker_frames": [
+    "target/base_link",
+    "target/link1",
+    "target/link2",
+    "target/link3",
+    "target/link4",
+    "target/link5",
+    "target/link6"
+  ]
+}

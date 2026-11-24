@@ -1,0 +1,89 @@
+{
+  "model": "/home/badder/minipc/New_Custom_Controller/install/custom_controller_usb/share/custom_controller_usb/config/controller_model_urdf2/controller.urdf",
+  "nq": 6,
+  "nv": 6,
+  "joint_names": [
+    "joint1",
+    "joint2",
+    "joint3",
+    "joint4",
+    "joint5",
+    "joint6"
+  ],
+  "poses_checked": 100,
+  "max_potential_gradient_error_nm": 5.333252728334514e-10,
+  "max_fk_error_m": 3.885780586188048e-16,
+  "max_yaw_gravity_nm": 7.404909262940249e-16,
+  "gravity_at_zero_nm": [
+    -5.1212352501078824e-18,
+    -0.5096106172793524,
+    1.520866478665706,
+    -0.24400631593394145,
+    -0.5250878376778655,
+    -0.0005269181885821152
+  ],
+  "mapping": {
+    "axis_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "scales": [
+      -1.0,
+      -0.25,
+      1.0,
+      -1.0,
+      1.0,
+      -1.0
+    ],
+    "position_scales": [
+      -1.0,
+      -0.25,
+      1.0,
+      -1.0,
+      1.0,
+      -1.0
+    ],
+    "offsets": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "position_offsets": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "reference_positions": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "torque_signs": [
+      1.0,
+      1.0,
+      1.0,
+      -1.0,
+      1.0,
+      1.0
+    ],
+    "gravity": [
+      0.0,
+      0.0,
+      -9.81
+    ]
+  },
+  "scope": "离线计算和资源验证，不代表实机方向/零点/传动比已校准。URDF 的零关节限位为 CAD 占位值，不能用于路径规划。"
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="new_hj_arm2">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+    <xacro:arg name="use_gazebo" default="false" />
+
+    <!-- Import new_hj_arm2 urdf file -->
+    <xacro:include filename="$(find new_hj_arm2)/urdf/new_hj_arm2.urdf" />
+
+    <!-- Import ros2_control xacro -->
+    <xacro:include filename="new_hj_arm2.ros2_control.xacro" />
+
+    <!-- Gazebo 仿真: 加载 ign_ros2_control 插件 -->
+    <xacro:if value="$(arg use_gazebo)">
+        <gazebo>
+            <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin"/>
+        </gazebo>
+        <xacro:new_hj_arm2_ros2_control
+            name="GazeboSystem"
+            initial_positions_file="$(arg initial_positions_file)"
+            use_gazebo="true"/>
+    </xacro:if>
+
+    <!-- RViz/MoveIt 测试: 使用 FakeSystem -->
+    <xacro:unless value="$(arg use_gazebo)">
+        <xacro:new_hj_arm2_ros2_control
+            name="FakeSystem"
+            initial_positions_file="$(arg initial_positions_file)"
+            use_gazebo="false"/>
+    </xacro:unless>
+
+</robot>

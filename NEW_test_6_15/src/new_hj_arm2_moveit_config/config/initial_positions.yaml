@@ -1,0 +1,10 @@
+# Default initial positions for new_hj_arm2's ros2_control fake system
+# home 姿态: J2=2.4rad(137.5°), J3=-2.4rad(-137.5°) — 机械臂折叠收起
+
+initial_positions:
+  J1: 0
+  J2: 2.4
+  J3: -2.4
+  J4: 0
+  J5: 0
+  J6: 0

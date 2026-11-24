@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: new_hj_arm
+    relative_path: urdf/new_hj_arm.urdf
+  srdf:
+    relative_path: config/new_hj_arm.srdf
+  package_settings:
+    author_name: my
+    author_email: my@qq.com
+    generated_timestamp: 1781528035
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

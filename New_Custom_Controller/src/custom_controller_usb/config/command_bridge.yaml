@@ -1,0 +1,9 @@
+/**:
+  ros__parameters:
+    axis_order: [0, 1, 2, 3, 4, 5]
+    # J6 遥操方向经实机校正为正；此配置只用于被控机械臂的目标映射。
+    scales: [-1.0, -1.0, 1.0, -1.0, -1.0, 1.0]
+    offsets: [0.0, 2.4, -2.4, 0.0, 0.0, 0.0]
+    main_button_bits: [-1, -1, -1, -1, -1, -1, -1, -1]
+    handle_button_bits: [-1, -1, -1, -1, -1, -1, -1, -1]
+    arm_joint_names: [joint_1, joint_2, joint_3, joint_4, joint_5, joint_6]

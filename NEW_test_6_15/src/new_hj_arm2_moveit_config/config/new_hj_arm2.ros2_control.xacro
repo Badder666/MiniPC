@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="new_hj_arm2_ros2_control" params="name initial_positions_file use_gazebo:=false">
+        <xacro:property name="initial_positions" value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
+
+        <ros2_control name="${name}" type="system">
+            <hardware>
+                <xacro:if value="${use_gazebo}">
+                    <!-- Gazebo 物理仿真硬件接口 -->
+                    <plugin>ign_ros2_control/IgnitionSystem</plugin>
+                </xacro:if>
+                <xacro:unless value="${use_gazebo}">
+                    <!-- 无物理仿真（RViz / MoveIt 测试用） -->
+                    <plugin>mock_components/GenericSystem</plugin>
+                </xacro:unless>
+            </hardware>
+
+            <!-- 关节 J1 -->
+            <joint name="J1">
+                <command_interface name="position"/>
+                <xacro:if value="${use_gazebo}">
+                    <command_interface name="effort"/>
+                </xacro:if>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['J1']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${use_gazebo}">
+                    <state_interface name="effort"/>
+                </xacro:if>
+            </joint>
+
+            <!-- 关节 J2 -->
+            <joint name="J2">
+                <command_interface name="position"/>
+                <xacro:if value="${use_gazebo}">
+                    <command_interface name="effort"/>
+                </xacro:if>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['J2']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${use_gazebo}">
+                    <state_interface name="effort"/>
+                </xacro:if>
+            </joint>
+
+            <!-- 关节 J3 -->
+            <joint name="J3">
+                <command_interface name="position"/>
+                <xacro:if value="${use_gazebo}">
+                    <command_interface name="effort"/>
+                </xacro:if>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['J3']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${use_gazebo}">
+                    <state_interface name="effort"/>
+                </xacro:if>
+            </joint>
+
+            <!-- 关节 J4 -->
+            <joint name="J4">
+                <command_interface name="position"/>
+                <xacro:if value="${use_gazebo}">
+                    <command_interface name="effort"/>
+                </xacro:if>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['J4']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${use_gazebo}">
+                    <state_interface name="effort"/>
+                </xacro:if>
+            </joint>
+
+            <!-- 关节 J5 -->
+            <joint name="J5">
+                <command_interface name="position"/>
+                <xacro:if value="${use_gazebo}">
+                    <command_interface name="effort"/>
+                </xacro:if>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['J5']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${use_gazebo}">
+                    <state_interface name="effort"/>
+                </xacro:if>
+            </joint>
+
+            <!-- 关节 J6 -->
+            <joint name="J6">
+                <command_interface name="position"/>
+                <xacro:if value="${use_gazebo}">
+                    <command_interface name="effort"/>
+                </xacro:if>
+                <state_interface name="position">
+                    <param name="initial_value">${initial_positions['J6']}</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+                <xacro:if value="${use_gazebo}">
+                    <state_interface name="effort"/>
+                </xacro:if>
+            </joint>
+
+        </ros2_control>
+    </xacro:macro>
+</robot>

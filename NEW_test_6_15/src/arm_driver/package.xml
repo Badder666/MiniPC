@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>arm_driver</name>
+  <version>0.1.0</version>
+  <description>
+    机械臂驱动包：包含重力补偿、前馈力矩计算等控制脚本。
+  </description>
+
+  <maintainer email="hero@example.com">hero</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- 依赖 pinocchio 刚体动力学库 -->
+  <depend>pinocchio</depend>
+  <!-- 依赖 URDF 模型包 -->
+  <depend>new_hj_arm2</depend>
+  <!-- 监听 MoveIt2 轨迹 -->
+  <depend>moveit_msgs</depend>
+  <depend>rclpy</depend>
+  <!-- Python 依赖 -->
+  <depend>python3-numpy</depend>
+  <!-- 重力补偿控制器 ROS 2 消息 -->
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_srvs</depend>
+
+  <!-- launch 文件依赖 -->
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

@@ -1,0 +1,46 @@
+# ros2_control 控制器配置 — new_hj_arm2
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    # 关节轨迹控制器 (位置模式 — MoveIt2 / RViz)
+    hj_arm_group_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    # 关节状态广播器
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    # 重力补偿力矩控制器 (effort 模式 — Gazebo 物理仿真)
+    gravity_compensation_controller:
+      type: forward_command_controller/ForwardCommandController
+
+
+# ── 关节轨迹控制器参数 ──
+hj_arm_group_controller:
+  ros__parameters:
+    joints:
+      - J1
+      - J2
+      - J3
+      - J4
+      - J5
+      - J6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+
+# ── 重力补偿力矩控制器参数 (effort 前馈) ──
+gravity_compensation_controller:
+  ros__parameters:
+    joints:
+      - J1
+      - J2
+      - J3
+      - J4
+      - J5
+      - J6
+    interface_name: effort

@@ -1,0 +1,26 @@
+# CCtrl 串口设备固定命名 + 禁止 ModemManager 探测 + 禁用 USB 休眠
+#
+# 使用 idVendor/idProduct 而非物理端口号，防止 USB 拓扑变化导致规则失效
+#
+
+# ── CH341 USB-Serial (ESP32-S3 遥控器接收) ──────────────────
+# 1a86:7523  QinHeng Electronics CH340 serial converter
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", \
+    SYMLINK+="serial_tc", ENV{ID_MM_DEVICE_IGNORE}="1"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", \
+    ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", \
+    ATTR{power/control}="on"
+
+# ── STM32 Virtual ComPort (0483:5740 机械臂串口桥接) ────────
+# 0483:5740  STMicroelectronics Virtual COM Port
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", \
+    SYMLINK+="serial_dm", ENV{ID_MM_DEVICE_IGNORE}="1"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", \
+    ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", \
+    ATTR{power/control}="on"
+
+# ── 禁用 USB3/USB4 根 hub 的自动挂起 ─────────────────────────
+SUBSYSTEM=="usb", KERNELS=="3-0", ATTR{power/control}="on"
+SUBSYSTEM=="usb", KERNELS=="4-0", ATTR{power/control}="on"

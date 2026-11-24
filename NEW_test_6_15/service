@@ -1,0 +1,20 @@
+# 查看完整日志
+journalctl -u ccctrl.service --no-pager
+
+# 查看最近 100 行
+journalctl -u ccctrl.service -n 100 --no-pager
+
+# 实时跟踪日志（最常用）
+journalctl -u ccctrl.service -f
+
+# 只看今天的日志
+journalctl -u ccctrl.service --since today --no-pager
+
+# 只看最近 1 小时
+journalctl -u ccctrl.service --since "1 hour ago" --no-pager
+
+# 按关键词过滤
+journalctl -u ccctrl.service | grep -i "断开\|reconnect\|error\|warn"
+
+# 带时间戳导出到文件
+journalctl -u ccctrl.service --since today --output

@@ -1,0 +1,33 @@
+[Unit]
+Description=CCtrl ROS2 Nodes (receiver + processor + serial bridge)
+After=network.target
+After=dev-ttyUSB0.device dev-ttyACM0.device
+
+[Service]
+Type=simple
+User=hj
+Group=dialout
+WorkingDirectory=/home/hj/NEW_test_6_15_1/NEW_test_6_15
+ExecStart=/home/hj/NEW_test_6_15_1/NEW_test_6_15/scripts/ccctrl_start.sh
+Restart=on-failure
+RestartSec=2
+TimeoutStartSec=60
+TimeoutStopSec=10
+StandardOutput=journal
+StandardError=journal
+
+# 限制 DDS 仅在本地通信，避免开机时网络接口未就绪导致发现失败
+Environment=ROS_LOCALHOST_ONLY=1
+
+# CPU 优先级
+Nice=-10
+
+# IO 优先级
+IOSchedulingClass=realtime
+IOSchedulingPriority=0
+
+# 防止被 OOM 杀掉
+OOMScoreAdjust=-1000
+
+[Install]
+WantedBy=multi-user.target

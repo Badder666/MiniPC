@@ -1,0 +1,9 @@
+/**:
+  ros__parameters:
+    # v2 控制器映射，与 gravity_compensation_urdf_model.c 一致。
+    # q_urdf = scales * q_encoder + offsets；CAD 零点仍需实物校准。
+    axis_order: [0, 1, 2, 3, 4, 5]
+    # J2/J5/J6 encoder direction is inverted relative to the controller URDF.
+    scales: [-1.0, -1.0, 1.0, 1.0, 1.0, -1.0]
+    offsets: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    reference_positions: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
